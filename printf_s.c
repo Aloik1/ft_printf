@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 18:07:09 by aloiki            #+#    #+#             */
-/*   Updated: 2024/09/29 20:17:47 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/09/29 22:01:59 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	ft_printf_s(va_list params, int len)
 	while(arg_str[i])
 	{
 		ft_putchar_fd(arg_str[i], 1);
+		i++;
 		len++;
 	}
 	return (len);

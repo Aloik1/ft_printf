@@ -6,7 +6,7 @@
 /*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 19:38:39 by aloiki            #+#    #+#             */
-/*   Updated: 2024/09/29 21:55:16 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/09/29 22:38:57 by aloiki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,17 @@ static int	ft_hex_num_len(size_t arg_ptr)
 	int	i;
 
 	i = 0;
-	while (arg_ptr > 16)
+	if (arg_ptr == 0)
+		return (1);
+	while (arg_ptr > 0)
 	{
-		i++;
 		arg_ptr = arg_ptr / 16;
+		i++;
 	}
-	i++;
 	return (i);
 }
 
-static void	ft_put_nbr_hex_ptr(unsigned int arg_ptr)
+static void	ft_put_nbr_hex_ptr(size_t arg_ptr)
 {
 	char	*hex;
 
@@ -46,9 +47,9 @@ static void	ft_put_nbr_hex_ptr(unsigned int arg_ptr)
 
 int	ft_printf_p(va_list params, int len)
 {
-	char	*arg_ptr;
+	void	*arg_ptr;
 
-	arg_ptr = va_arg(params, char *);
+	arg_ptr = va_arg(params, void *);
 	ft_putstr_fd("0x", 1);
 	len = len + 2;
 	if (!arg_ptr)
