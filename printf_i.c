@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printf_i.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ikondrat <ikondrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 18:06:48 by aloiki            #+#    #+#             */
-/*   Updated: 2024/09/29 21:44:39 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/09/30 13:47:12 by ikondrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,15 @@ static int	ft_number_len(int arg_number)
 		i++;
 		arg_number = arg_number / 10;
 	}
-		i++;
+	i++;
 	return (i);
 }
+
 int	ft_printf_i(va_list params, int len)
 {
-	int arg_number = va_arg(params, int);
+	int	arg_number;
+
+	arg_number = va_arg(params, int);
 	ft_putnbr_fd(arg_number, 1);
 	len = len + ft_number_len(arg_number);
 	return (len);

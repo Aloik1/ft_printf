@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printf_s.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ikondrat <ikondrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 18:07:09 by aloiki            #+#    #+#             */
-/*   Updated: 2024/09/29 22:01:59 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/09/30 13:48:32 by ikondrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,12 @@
 
 int	ft_printf_s(va_list params, int len)
 {
-	int	i;
+	int		i;
+	char	*arg_str;
 
+	arg_str = va_arg(params, char *);
 	i = 0;
-	char *arg_str = va_arg(params, char *);
-	while(arg_str[i])
+	while (arg_str[i])
 	{
 		ft_putchar_fd(arg_str[i], 1);
 		i++;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ikondrat <ikondrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 18:28:23 by aloiki            #+#    #+#             */
-/*   Updated: 2024/09/29 20:09:27 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/09/30 13:39:39 by ikondrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	ft_putstr_fd(char *s, int fd)
 		i++;
 	}
 }
+
 void	ft_putnbr_fd(int nb, int fd)
 {
 	if (nb == -2147483648)

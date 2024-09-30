@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printf_X.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ikondrat <ikondrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 18:04:26 by aloiki            #+#    #+#             */
-/*   Updated: 2024/09/29 21:51:23 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/09/30 13:42:41 by ikondrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ static int	ft_hex_num_len(unsigned int arg_hex_number_upper)
 static void	ft_put_nbr_hex_upper(unsigned int arg_hex_number_upper)
 {
 	char	*hex;
+
 	hex = "0123456789ABCDEF";
 	if (arg_hex_number_upper >= 16)
 	{
@@ -41,11 +42,12 @@ static void	ft_put_nbr_hex_upper(unsigned int arg_hex_number_upper)
 	return ;
 }
 
-int	ft_printf_X(va_list params, int len)
+int	ft_printf_x_big(va_list params, int len)
 {
-	unsigned int arg_hex_number_upper = va_arg(params, unsigned int);
+	unsigned int	arg_hex_number_upper;
+
+	arg_hex_number_upper = va_arg(params, unsigned int);
 	len = len + ft_hex_num_len(arg_hex_number_upper);
 	ft_put_nbr_hex_upper(arg_hex_number_upper);
 	return (len);
-
 }

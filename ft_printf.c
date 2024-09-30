@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ikondrat <ikondrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 13:35:48 by aloiki            #+#    #+#             */
-/*   Updated: 2024/09/29 22:08:39 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/09/30 13:43:28 by ikondrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 int	ft_many_ifs(const char *str, int len, va_list params)
 {
 	if (str[len] == ' ')
-			ft_putchar_fd(' ', 1);
+		ft_putchar_fd(' ', 1);
 	if (str[len] == '%')
 	{
 		len++;
@@ -34,7 +34,7 @@ int	ft_many_ifs(const char *str, int len, va_list params)
 		if (str[len] == 'x')
 			return (ft_printf_x(params, len));
 		if (str[len] == 'X')
-			return (ft_printf_X(params, len));
+			return (ft_printf_x_big(params, len));
 		if (str[len] == 'p')
 			return (ft_printf_p(params, len));
 	}
@@ -42,13 +42,13 @@ int	ft_many_ifs(const char *str, int len, va_list params)
 		ft_putchar_fd(str[len], 1);
 	return (len);
 }
+
 int	ft_printf(const char *str, ...)
 {
-	va_list params;
-	va_start(params, str); //indica el ultimo argumento fijo
+	va_list	params;
+	int		len;
 
-	int	len;
-
+	va_start(params, str);
 	len = 0;
 	while (str[len])
 	{
@@ -60,16 +60,17 @@ int	ft_printf(const char *str, ...)
 	}
 	va_end(params);
 	return (len);
-}	
-int	main(void)
-{
-	char	*str;
-
-	str = "UwU";
-	ft_printf("%s %d %c %x %p", "Hello", 5, 'W', 1000000, str);
-	printf("\n");
-	printf("%s %d %c %x %p\n", "Hello", 5, 'W', 1000000, str);
-	ft_printf("%c %i %u", 'A', 123, 321);
-	printf("%c %i %u", 'A', 123, 321);
-	return (0);
 }
+
+// int	main(void)
+// {
+// 	char	*str;
+
+// 	str = "UwU";
+// 	ft_printf("%s %d %c %x %p", "Hello", 5, 'W', 1000000, str);
+// 	printf("\n");
+// 	printf("%s %d %c %x %p\n", "Hello", 5, 'W', 1000000, str);
+// 	ft_printf("%c %i %u", 'A', 123, 321);
+// 	printf("%c %i %u", 'A', 123, 321);
+// 	return (0);
+// }

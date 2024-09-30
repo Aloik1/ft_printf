@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printf_p.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ikondrat <ikondrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 19:38:39 by aloiki            #+#    #+#             */
-/*   Updated: 2024/09/29 22:38:57 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/09/30 13:47:43 by ikondrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,6 @@ int	ft_printf_p(va_list params, int len)
 	{
 		len = len + ft_hex_num_len((size_t)arg_ptr);
 		ft_put_nbr_hex_ptr((size_t)arg_ptr);
-	}	
+	}
 	return (len);
 }

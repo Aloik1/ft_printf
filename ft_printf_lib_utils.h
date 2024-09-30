@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_lib_utils.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ikondrat <ikondrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 18:42:22 by aloiki            #+#    #+#             */
-/*   Updated: 2024/09/29 20:09:19 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/09/30 13:39:12 by ikondrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_LIB_UTILS_H
 # define FT_PRINTF_LIB_UTILS_H
 
-#include <unistd.h>
+# include <unistd.h>
 
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);

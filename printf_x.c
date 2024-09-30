@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printf_x.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ikondrat <ikondrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 18:03:44 by aloiki            #+#    #+#             */
-/*   Updated: 2024/09/29 21:51:16 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/09/30 13:50:00 by ikondrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,9 @@ static void	ft_put_nbr_hex_lower(unsigned int arg_hex_number_lower)
 
 int	ft_printf_x(va_list params, int len)
 {
-	unsigned int arg_hex_number_lower = va_arg(params, unsigned int);
+	unsigned int	arg_hex_number_lower;
+
+	arg_hex_number_lower = va_arg(params, unsigned int);
 	len = len + ft_hex_num_len(arg_hex_number_lower);
 	ft_put_nbr_hex_lower(arg_hex_number_lower);
 	return (len);

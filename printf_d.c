@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printf_d.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aloiki <aloiki@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ikondrat <ikondrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 18:06:16 by aloiki            #+#    #+#             */
-/*   Updated: 2024/09/29 20:27:55 by aloiki           ###   ########.fr       */
+/*   Updated: 2024/09/30 13:46:09 by ikondrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 
 int	ft_printf_d(va_list params, int len)
 {
-	int arg_digit = va_arg(params, int);
+	int	arg_digit;
+
+	arg_digit = va_arg(params, int);
 	if (arg_digit < 0)
 		len++;
 	ft_putnbr_fd(arg_digit, 1);
