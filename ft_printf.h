@@ -6,7 +6,7 @@
 /*   By: ikondrat <ikondrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 13:37:26 by aloiki            #+#    #+#             */
-/*   Updated: 2024/09/30 13:43:15 by ikondrat         ###   ########.fr       */
+/*   Updated: 2024/10/01 17:04:42 by ikondrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,12 @@
 # include <stdarg.h>
 
 int	ft_printf(const char *str, ...);
-int	ft_printf_c(va_list params, int len);
-int	ft_printf_d(va_list params, int len);
-int	ft_printf_s(va_list params, int len);
-int	ft_printf_i(va_list params, int len);
-int	ft_printf_u(va_list params, int len);
-int	ft_printf_x(va_list params, int len);
-int	ft_printf_x_big(va_list params, int len);
-int	ft_printf_p(va_list params, int len);
-//utils
-// int	ft_putchar_fd(char c, int fd);
-// int	ft_putstr_fd(char *s, int fd);
-// int	ft_putnbr_fd(int nb, int fd);
+int	ft_printf_c(int c);
+int	ft_printf_d_i(int c);
+int	ft_printf_s(char *str);
+int	ft_printf_u(unsigned int);
+int	ft_printf_x(unsigned int);
+int	ft_printf_x_big(unsigned int);
+int	ft_printf_p(size_t c);
 
 #endif

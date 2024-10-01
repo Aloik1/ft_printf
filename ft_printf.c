@@ -6,7 +6,7 @@
 /*   By: ikondrat <ikondrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 13:35:48 by aloiki            #+#    #+#             */
-/*   Updated: 2024/09/30 13:43:28 by ikondrat         ###   ########.fr       */
+/*   Updated: 2024/10/01 16:41:06 by ikondrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,49 +14,52 @@
 #include "ft_printf_lib_utils.h"
 #include <stdio.h>
 
-int	ft_many_ifs(const char *str, int len, va_list params)
+int	ft_many_ifs(const char *str, int i, va_list params)
 {
-	if (str[len] == ' ')
-		ft_putchar_fd(' ', 1);
-	if (str[len] == '%')
+	if (str[i] == 'c')
+		return (ft_printf_c(va_arg(params, int)));
+	if (str[i] == 'd' || str[i] == 'i')
+		return (ft_printf_d_i(va_arg(params, int)));
+	if (str[i] == 's')
+		return (ft_printf_s(va_arg(params, char *)));
+	if (str[i] == 'u')
+		return (ft_printf_u(va_arg(params, unsigned int)));
+	if (str[i] == 'x')
+		return (ft_printf_x(va_arg(params, unsigned int)));
+	if (str[i] == 'X')
+		return (ft_printf_x_big(va_arg(params, unsigned int)));
+	if (str[i] == 'p')
+		return (ft_printf_p(va_arg(params, size_t)));
+	if (str[i] == '%')
 	{
-		len++;
-		if (str[len] == 'c')
-			return (ft_printf_c(params, len));
-		if (str[len] == 'd')
-			return (ft_printf_d(params, len));
-		if (str[len] == 's')
-			return (ft_printf_s(params, len));
-		if (str[len] == 'i')
-			return (ft_printf_i(params, len));
-		if (str[len] == 'u')
-			return (ft_printf_u(params, len));
-		if (str[len] == 'x')
-			return (ft_printf_x(params, len));
-		if (str[len] == 'X')
-			return (ft_printf_x_big(params, len));
-		if (str[len] == 'p')
-			return (ft_printf_p(params, len));
+		ft_putchar_fd('%', 1);
+		return (1);	
 	}
-	else
-		ft_putchar_fd(str[len], 1);
-	return (len);
+	return (0);
 }
 
 int	ft_printf(const char *str, ...)
 {
 	va_list	params;
 	int		len;
+	int		i;
 
 	va_start(params, str);
 	len = 0;
-	while (str[len])
+	i = 0;
+	while (str[i])
 	{
-		if (str[len] == ' ')
-			ft_putchar_fd(' ', 1);
-		if (str[len] == '%')
-			ft_many_ifs(str, len, params);
-		len++;
+		if (str[i] == '%')
+		{
+			i++;
+			len = len + ft_many_ifs(str, i, params);
+		}
+		else
+		{
+			ft_putchar_fd(str[i], 1);
+			len++;
+		}
+		i++;
 	}
 	va_end(params);
 	return (len);

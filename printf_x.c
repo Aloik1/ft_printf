@@ -6,48 +6,44 @@
 /*   By: ikondrat <ikondrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 18:03:44 by aloiki            #+#    #+#             */
-/*   Updated: 2024/09/30 13:50:00 by ikondrat         ###   ########.fr       */
+/*   Updated: 2024/10/01 17:08:58 by ikondrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "ft_printf_lib_utils.h"
 
-static int	ft_hex_num_len(unsigned int arg_hex_number_lower)
+static int	ft_hex_num_len(unsigned int num)
 {
 	int	i;
 
 	i = 0;
-	while (arg_hex_number_lower > 16)
+	while (num > 16)
 	{
 		i++;
-		arg_hex_number_lower = arg_hex_number_lower / 16;
+		num = num / 16;
 	}
 	i++;
 	return (i);
 }
 
-static void	ft_put_nbr_hex_lower(unsigned int arg_hex_number_lower)
+static void	ft_put_nbr_hex_lower(unsigned int num)
 {
 	char	*hex;
 
 	hex = "0123456789abcdef";
-	if (arg_hex_number_lower >= 16)
+	if (num >= 16)
 	{
-		ft_put_nbr_hex_lower(arg_hex_number_lower / 16);
-		ft_put_nbr_hex_lower(arg_hex_number_lower % 16);
+		ft_put_nbr_hex_lower(num / 16);
+		ft_put_nbr_hex_lower(num % 16);
 	}
-	else if (arg_hex_number_lower < 16)
-		ft_putchar_fd(hex[arg_hex_number_lower], 1);
+	else if (num < 16)
+		ft_putchar_fd(hex[num], 1);
 	return ;
 }
 
-int	ft_printf_x(va_list params, int len)
+int	ft_printf_x(unsigned int c)
 {
-	unsigned int	arg_hex_number_lower;
-
-	arg_hex_number_lower = va_arg(params, unsigned int);
-	len = len + ft_hex_num_len(arg_hex_number_lower);
-	ft_put_nbr_hex_lower(arg_hex_number_lower);
-	return (len);
+	ft_put_nbr_hex_lower(c);
+	return (ft_hex_num_len(c));
 }

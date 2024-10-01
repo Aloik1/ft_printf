@@ -2,7 +2,7 @@ NAME = libftprintf.a
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
 AR = ar rcs
-SRCS = ft_printf.c  ft_printf_utils.c  printf_x_big.c  printf_c.c  printf_d.c  printf_i.c  printf_s.c  printf_u.c  printf_x.c printf_p.c
+SRCS = ft_printf.c  ft_printf_utils.c  printf_x_big.c  printf_c.c  printf_d_i.c  printf_s.c  printf_u.c  printf_x.c printf_p.c
 OBJS = $(SRCS:.c=.o)
 RM = rm -f
 

@@ -6,25 +6,27 @@
 /*   By: ikondrat <ikondrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 18:07:09 by aloiki            #+#    #+#             */
-/*   Updated: 2024/09/30 13:48:32 by ikondrat         ###   ########.fr       */
+/*   Updated: 2024/10/01 17:04:44 by ikondrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "ft_printf_lib_utils.h"
 
-int	ft_printf_s(va_list params, int len)
+int	ft_printf_s(char *str)
 {
 	int		i;
-	char	*arg_str;
 
-	arg_str = va_arg(params, char *);
 	i = 0;
-	while (arg_str[i])
+	if (!str)
 	{
-		ft_putchar_fd(arg_str[i], 1);
-		i++;
-		len++;
+		ft_putstr_fd("(null)", 1);
+		return (6);
 	}
-	return (len);
+	while (str[i])
+	{
+		ft_putchar_fd(str[i], 1);
+		i++;
+	}
+	return (i);
 }
